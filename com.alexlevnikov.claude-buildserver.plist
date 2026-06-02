@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.alexlevnikov.claude-buildserver</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/alexlevnikov/.claude/buildserver/launchd-boot.sh</string>
+    </array>
+
+    <!-- Стартовать при входе в систему -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- И каждую минуту: если сессия умерла — поднять заново (авто-recovery) -->
+    <key>StartInterval</key>
+    <integer>60</integer>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <!-- Папка, в которой Claude будет работать. Поменяй при необходимости. -->
+        <key>BUILD_DIR</key>
+        <string>/Users/alexlevnikov/Documents/Projects</string>
+        <key>TMUX_SESSION</key>
+        <string>claude</string>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/alexlevnikov/.claude/buildserver/launchd.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/alexlevnikov/.claude/buildserver/launchd.err.log</string>
+</dict>
+</plist>

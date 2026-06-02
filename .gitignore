@@ -1,0 +1,17 @@
+# Секреты — никогда не коммитить
+*.env
+*.env.*
+control.env
+transcribe.env
+
+# Шаблоны — коммитить можно
+!*.env.example
+
+# Логи и рантайм
+*.log
+*.pid
+state/
+sessions/
+
+# macOS
+.DS_Store
